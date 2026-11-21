@@ -27,6 +27,30 @@ The `main` branch, which always contains the most recent version, supports GNOME
 - Keyboard and mouse shortcuts allow advanced workspace and window control
 - 4 predefined and fully customizable profiles
 
+## Custom workspace interactions
+
+The **Custom** preferences page adds three independent workspace thumbnail controls:
+
+- **Single-click to Enter Workspace** activates the clicked workspace and closes Activities, including when that workspace is already active.
+- **Drag to Reorder Workspaces** previews the new thumbnail order while dragging and commits the order when the drag ends. Workspace windows stay with their workspace.
+- **Preview Workspace on Hover** changes the large workspace view while the pointer is over a thumbnail. It does not activate that workspace; moving away restores the active workspace preview.
+
+All three options are enabled by default. Open the V-Shell settings window from the Extensions app, then select **Custom**. Turning an option off restores the original V-Shell behavior for that interaction.
+
+The automatically managed empty workspace stays at the end when dynamic workspaces are enabled and cannot be dragged. Thumbnail reordering is limited to the workspace row and does not create workspaces. The hover preview follows the shared overview workspace view across monitors.
+
+### Manual acceptance checklist
+
+- Open Activities, click a different thumbnail once, and confirm the overview closes on that workspace. Repeat on the active thumbnail and in the app grid.
+- Hover several thumbnails quickly. Confirm the large workspace view follows them without changing the active desktop, then move to empty overview space and confirm the active workspace preview returns.
+- Drag a middle thumbnail to the beginning, between two thumbnails, and to the end. Repeat in the opposite direction and confirm the insertion bar reaches both row edges.
+- Repeat with vertical orientation, right-to-left text direction, dynamic workspaces, and more than one monitor. Confirm the active workspace and its windows remain associated with the same workspace.
+- Drag a window and an app icon onto thumbnails and into GNOME's new-workspace placeholder. Confirm those existing drop actions still work.
+- Turn each Custom option off and on independently. Confirm its behavior changes without changing the other two options.
+- Cancel a thumbnail drag with Escape and by releasing outside the row. Confirm the prior workspace order returns and a later thumbnail click works normally.
+
+These interactions need visual checking in a running GNOME Shell session; building the extension does not verify pointer behavior.
+
 
 ## Added functionality
 This section explains some of the less obvious and invisible additions to the Shell's behavior.
@@ -192,6 +216,15 @@ Navigate to the directory you want to download the source code and execute follo
     make install
 
 If you get `Can't recursively copy directory` error, take a look at issue [#51](https://github.com/G-dH/vertical-workspaces/issues/51).
+
+### Build and install this local fork
+
+From the repository directory, build the extension archive and install it for the current user:
+
+    make clean && make zip
+    gnome-extensions install --force vertical-workspaces@G-dH.github.com.zip
+
+Enable the extension if needed, then restart GNOME Shell. On X11, press `Alt`+`F2`, enter `r`, and press Enter. On Wayland, log out and log back in; GNOME Shell cannot be restarted in place on Wayland.
 
 ### Enabling the extension
 After installation you need to enable the extension and access its settings.

@@ -46,6 +46,15 @@
     <key type="i" name="close-ws-button-mode">
       <default>2</default>
     </key>
+    <key type="b" name="custom-single-click-enter-workspace">
+      <default>true</default>
+    </key>
+    <key type="b" name="custom-drag-reorder-workspaces">
+      <default>true</default>
+    </key>
+    <key type="b" name="custom-hover-workspace-preview">
+      <default>true</default>
+    </key>
     <key type="b" name="center-dash-to-ws">
       <default>false</default>
     </key>
