@@ -1132,8 +1132,8 @@ export default class VShell extends ExtensionPreferences {
                 itemFactory.newDropDown(),
                 'startupState',
                 [
-                    [_('Overview (Default)'), 0],
-                    [_('Desktop'), 1],
+                    [_('Overview'), 0],
+                    [_('Desktop (Default)'), 1],
                     [_('Applications'), 2],
                 ]
             )

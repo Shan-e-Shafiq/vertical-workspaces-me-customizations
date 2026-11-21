@@ -152,7 +152,7 @@
       <default>0</default>
     </key>
     <key type="i" name="startup-state">
-      <default>0</default>
+      <default>1</default>
     </key>
     <key type="i" name="overview-mode">
       <default>0</default>
@@ -497,7 +497,7 @@
         'animationSpeedFactor': '100',
         'winPreviewIconSize': '1',
         'winTitlePosition': '0',
-        'startupState': '0',
+        'startupState': '1',
         'overviewMode': '0',
         'workspaceSwitcherAnimation': '1',
         'wsSwitcherMode': '0',
@@ -641,7 +641,7 @@
         'animationSpeedFactor': '100',
         'winPreviewIconSize': '1',
         'winTitlePosition': '0',
-        'startupState': '0',
+        'startupState': '1',
         'overviewMode': '0',
         'workspaceSwitcherAnimation': '0',
         'wsSwitcherMode': '0',
@@ -785,7 +785,7 @@
         'animationSpeedFactor': '100',
         'winPreviewIconSize': '1',
         'winTitlePosition': '0',
-        'startupState': '0',
+        'startupState': '1',
         'overviewMode': '1',
         'workspaceSwitcherAnimation': '1',
         'wsSwitcherMode': '0',
@@ -929,7 +929,7 @@
         'animationSpeedFactor': '100',
         'winPreviewIconSize': '1',
         'winTitlePosition': '4',
-        'startupState': '0',
+        'startupState': '1',
         'overviewMode': '2',
         'workspaceSwitcherAnimation': '1',
         'wsSwitcherMode': '0',
@@ -1073,7 +1073,7 @@
         'animationSpeedFactor': '100',
         'winPreviewIconSize': '0',
         'winTitlePosition': '2',
-        'startupState': '0',
+        'startupState': '1',
         'overviewMode': '0',
         'workspaceSwitcherAnimation': '0',
         'wsSwitcherMode': '0',
