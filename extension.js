@@ -170,6 +170,11 @@ export default class VShell extends Extension.Extension {
         // Since GNOME 50 we cannot rely on patching the controls.runStartupAnimation()
         // The workaround here is hiding the default startup animation and activate V-Shell when it's finished
 
+        // GNOME 50 chooses its initial Overview before V-Shell's delayed
+        // activation. Apply the Desktop preference to that first animation too.
+        if (opt.STARTUP_STATE === 1 && '_startInOverview' in Main.layoutManager)
+            Main.layoutManager._startInOverview = false;
+
         // Minimize default animation duration
         St.Settings.get().slow_down_factor = 0;
         // Hide screen content until V-Shell is ready
@@ -185,8 +190,6 @@ export default class VShell extends Extension.Extension {
             // Move the screen cover above all other actors
             Main.layoutManager.uiGroup.set_child_above_sibling(this._screenCover, null);
             Me.run.timeouts.startupAnimation = GLib.idle_add(GLib.PRIORITY_LOW, () => {
-                this._screenCover.destroy();
-                this._screenCover = null;
                 Me.run.timeouts.startupAnimation1 = GLib.idle_add(GLib.PRIORITY_LOW, () => {
                     Me.run.delayedStartup = false;
                     Main.overview._overview.controls.realizeAppDisplayAndFinishStartup();
@@ -195,6 +198,8 @@ export default class VShell extends Extension.Extension {
                 });
                 Me.run.delayedStartup = true;
                 this._activateVShell();
+                this._screenCover.destroy();
+                this._screenCover = null;
                 // Since VShell has been activated with a delay, move it in extensionOrder
                 let extensionOrder = Main.extensionManager._extensionOrder;
                 const idx = extensionOrder.indexOf(this.metadata.uuid);
