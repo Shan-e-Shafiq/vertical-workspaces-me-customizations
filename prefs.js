@@ -46,6 +46,11 @@ export default class VShell extends ExtensionPreferences {
                 optionList: this._getBehaviorOptionList(itemFactory),
             },
             {
+                title: _('Custom'),
+                iconName: 'input-mouse-symbolic',
+                optionList: this._getCustomOptionList(itemFactory),
+            },
+            {
                 title: _('App Grid'),
                 iconName: 'view-app-grid-symbolic',
                 optionList: this._getAppGridOptionList(itemFactory),
@@ -2400,6 +2405,37 @@ export default class VShell extends ExtensionPreferences {
                 'workspaceSwitcherPopupModule'
             )
         );
+
+        return optionList;
+    }
+
+    _getCustomOptionList(itemFactory) {
+        const optionList = [];
+
+        optionList.push(itemFactory.getRowWidget(
+            _('Workspace Interactions')
+        ));
+
+        optionList.push(itemFactory.getRowWidget(
+            _('Single-click to Enter Workspace'),
+            _('Open a workspace and exit Activities with one click on its thumbnail.'),
+            itemFactory.newSwitch(),
+            'customSingleClickEnterWorkspace'
+        ));
+
+        optionList.push(itemFactory.getRowWidget(
+            _('Drag to Reorder Workspaces'),
+            _('Rearrange workspaces by dragging thumbnails, with animated positioning and an insertion indicator.'),
+            itemFactory.newSwitch(),
+            'customDragReorderWorkspaces'
+        ));
+
+        optionList.push(itemFactory.getRowWidget(
+            _('Preview Workspace on Hover'),
+            _('Show a workspace in the main overview preview when hovering its thumbnail.'),
+            itemFactory.newSwitch(),
+            'customHoverWorkspacePreview'
+        ));
 
         return optionList;
     }

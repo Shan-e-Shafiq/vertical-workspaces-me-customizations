@@ -207,6 +207,19 @@
 	border-radius: 6px;
 }
 
+.workspace-reorder-indicator {
+	background-color: rgb(53, 132, 228);
+	border-radius: 999px;
+}
+
+.workspace-reorder-indicator.horizontal {
+	min-width: 3px;
+}
+
+.workspace-reorder-indicator.vertical {
+	min-height: 3px;
+}
+
 .ws-tmb-labeled {
 	border: 0px;
 }
